@@ -2,20 +2,21 @@ class Solution {
 public:
     // space optimized solution. vector is unnecessary.
     int climbStairs(int n) {
+        // handle 1 case
         if (n == 1) {
             return 1;
         }
       
-        int prev1 = 1;
-        int prev2 = 2;
+        int prev = 1;
+        int curr = 2;
        
         for (int i = 2; i < n; ++i) {
-            int temp = prev2;
-            prev2 += prev1;
-            prev1 = temp;
+            int temp = curr;
+            curr += prev;
+            prev = temp;
         }
         
-        return prev2;
+        return curr;
     }
   
        // dp solution using vector
